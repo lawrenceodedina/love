@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script{
                     checkout scm
-                    docker.withRegistry('', dockerid){
+                    docker.withRegistry('', 'dockerid'){
                         def app=docker.build("femiodedina/love:${env.BUILD_NUMBER}")
                         app.push()
                         app.push("latest")
